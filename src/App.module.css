@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body {
+  margin: 0;
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.confirmed {
+  color: #2c2c2c;
+}
+
+.recovered {
+  color: #18c93b;
+}
+
+.deaths {
+  color: #db183c;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 100pt;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.boxItem {
+  width: 33%;
+}
+
+.infoTop, .infoBottom {
+  margin: 10px;
+}
+
+span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.source {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 375px) {
+  .box {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+    justify-content: space-around;
+    height: 85vh;
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 22vmin;
+    margin: 0;
+  }
+
+  .boxItem {
+    width: auto;
+  }
+
+  .differenceHours {
+    bottom: 0;
+    font-size: 13px;
+  }
+}
