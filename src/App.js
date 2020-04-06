@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import {fetchData} from './api';
+import {fetchData, getCountry, translateCountry} from './api';
 import styles from './App.module.css';
 import Loader from './Loader';
+import geolocationPic from './geolocation.svg';
 
 class App extends React.Component {
     state = {
@@ -14,7 +15,12 @@ class App extends React.Component {
     };
 
     async componentDidMount() {
-        let newState = await fetchData(this.state.country);
+        const country = await getCountry();
+
+        let newState = await fetchData(country);
+
+        const countryInRussian = await translateCountry(country);
+        newState.country = countryInRussian;
         this.setState(newState);
     }
 
@@ -40,7 +46,10 @@ class App extends React.Component {
                     ? <Loader/>
                     : <div className={styles.container}>
                         <div className={styles.infoTop}>
-                            <span>Беларусь, {`${arr[this.state.differenceHours][1]} ${hoursString} назад`}</span>
+                            <span>
+                                <img src={geolocationPic} alt='значок геолокации'/>
+                                {this.state.country}, {`${arr[this.state.differenceHours][1]} ${hoursString} назад`}
+                            </span>
                         </div>
                         <div className={styles.box}>
                             <div className={styles.boxItem}>

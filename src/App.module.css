@@ -50,11 +50,16 @@ h1 {
 }
 
 .boxItem {
-  width: 33%;
+  width: calc(100% / 3);;
 }
 
 .infoTop, .infoBottom {
   margin: 10px;
+}
+
+.infoTop > span > img {
+  width: 13px;
+  margin: 0 5px 0;
 }
 
 span {
